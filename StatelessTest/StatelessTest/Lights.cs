@@ -32,7 +32,8 @@ namespace StatelessTest
             _stateMachine.Configure(State.Off)
                 .Permit(Trigger.TurnOn, State.On)
                 .Permit(Trigger.Dim, State.Dimmed)
-                .OnEntry(TurnLightsOff);
+                .OnEntry(TurnLightsOff)
+                .OnActivate(() => Console.WriteLine("Lights are off, eh?"));
 
             _stateMachine.Configure(State.On)
                 .Permit(Trigger.TurnOff, State.Off)
