@@ -13,7 +13,8 @@ namespace StatelessTest
         {
             On,
             Off,
-            Dimmed
+            Dimmed,
+            Romantic
         }
         public enum Trigger
         {
@@ -43,7 +44,11 @@ namespace StatelessTest
             _stateMachine.Configure(State.Dimmed)
                 .Permit(Trigger.TurnOn, State.On)
                 .Permit(Trigger.TurnOff, State.Off)
+                .Permit(Trigger.Dim, State.Romantic)
                 .OnEntry(DimLights);
+
+            _stateMachine.Configure(State.Romantic)
+                .OnEntry(() => Console.WriteLine("Lights are set to romantic ;)"));
 
         }
 

@@ -14,13 +14,11 @@ namespace StatelessTest
 
             light.Transition(Lights.Trigger.TurnOn);
 
-            light.Transition(Lights.Trigger.TurnOff);
+            light.Transition(Lights.Trigger.Dim);
 
             light.Transition(Lights.Trigger.Dim);
 
-            light.Transition(Lights.Trigger.TurnOn);
-
-            //Console.ReadLine();
+            Console.ReadLine();
         }
     }
 }
